@@ -1,49 +1,92 @@
 # project level configuration
-sudo: false
 docker: java-docker
-language: ruby
-project: my project name
-install:
-  - ant
-  - maven:2.1
-  - mongodb:3.1
-
+language: node.js
+version: 1.6
+cache: true
+build_path: ./project_folder_name
+env:
+ - FLOW_ENV_1=xxx111,FLOW_ENV_2=xxx111
+ - FLOW_ENV_3=xxx222
+ - FLOW_ENV_4=xxx333
 
 # flow level configuration
 flows:
-  - branch: master
-    # overwrite project level configuration
-    sudo: true
+  - name: 123
     docker: open-jdk-1.9-docker
+    language: objective-c
+    cache: false
+    env:
+      - FLOW_ENV_5=xxx555
+      - FLOW_ENV_6=xxx666
 
-    # steps definition
+    trigger:
+      push:
+        - develop
+        - master
+      tag:
+        - '*'
+      pull_request: true
+      schedule:
+        - 5, 5, 10, 10
+
+    finalize:
+      email:
+        success:
+          - test1@fir.im
+          - test2@fir.im
+          - test3@fir.im
+        failure:
+          - test1@fir.im
+          - test2@fir.im
+      slack:
+        success:
+          - xxx
+          - xxx
+        failure:
+          - xxx
+      webhook:
+        success:
+          - xxx
+        failure:
+          - xxx
+
+    # steps definition, cannot define both plugin and scripts
     steps:
-      - step 1:
-        - echo 1-1
-        - echo 1-2
-      - step 2:
-        - echo 2-1
-      - step 3:
-        - curl www.baidu.com
-      - step 4:
-        - curl www.baidu.com
+      - name: step_1
+        enable: true
+        failure: false
+        plugin:
+          name: xxxx
+          inputs:
+            - FLOW_WORK_SPACE=12
+            - FLOW_WORK_XXXXX=14
 
-  - branch: develop
-    # overwrite project level configuration
-    sudo: false
-    docker: open-jdk-1.8-docker
+      - name: step_2
+        scripts:
+          - mvn build test
 
-    # steps definition
+      - name: step_3 # only plugin
+        plugin:
+          name: redis
+          version: 2.3.6
+
+      - name: step_4 # only script
+        scripts:
+          - mvn finish
+          - mvn clean
+
+  - name: flow-2
+    trigger:
+      push:
+        - develop
+
+    # steps definition, cannot define both plugin and scripts
     steps:
-      - step 1:
-        - echo 1-1
-        - echo 1-2
-      - step 2:
-        - echo 2-1
-      - step 3:
-        - curl www.baidu.com
-      - step 4:
-        - curl www.baidu.com
-      - step 5:
-        - echo 5-1
-        - echo 5-2
+      - name: step_1
+        enable: true
+        failure: false
+        plugin:
+          name: xxxx
+          inputs:
+            - FLOW_WORK_SPACE=12
+            - FLOW_WORK_XXXXX=14
