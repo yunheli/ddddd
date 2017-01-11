@@ -1,7 +1,7 @@
 # project level configuration
 sudo: false
 docker: java-docker
-language: java
+language: ruby
 project: my project name
 install:
   - ant
