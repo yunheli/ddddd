@@ -1,0 +1,49 @@
+# project level configuration
+sudo: false
+docker: java-docker
+language: java
+project: my project name
+install:
+  - ant
+  - maven:2.1
+  - mongodb:3.1
+
+
+# flow level configuration
+flows:
+  - branch: master
+    # overwrite project level configuration
+    sudo: true
+    docker: open-jdk-1.9-docker
+
+    # steps definition
+    steps:
+      - step 1:
+        - echo 1-1
+        - echo 1-2
+      - step 2:
+        - echo 2-1
+      - step 3:
+        - curl www.baidu.com
+      - step 4:
+        - curl www.baidu.com
+
+  - branch: develop
+    # overwrite project level configuration
+    sudo: false
+    docker: open-jdk-1.8-docker
+
+    # steps definition
+    steps:
+      - step 1:
+        - echo 1-1
+        - echo 1-2
+      - step 2:
+        - echo 2-1
+      - step 3:
+        - curl www.baidu.com
+      - step 4:
+        - curl www.baidu.com
+      - step 5:
+        - echo 5-1
+        - echo 5-2
