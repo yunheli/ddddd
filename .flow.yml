@@ -89,6 +89,10 @@ flows:
         scripts:
           - echo "hello world1"
           - echo "hello world2"
+      - name: step_9 # only script
+        scripts:
+          - echo "hello world1"
+          - echo "hello world2"
 
 #  - name: flow-2
 #    trigger:
