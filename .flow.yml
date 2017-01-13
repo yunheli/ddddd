@@ -49,7 +49,7 @@ flows:
 
     # steps definition, cannot define both plugin and scripts
     steps:
-      - name: step_10
+      - name: step_11
         enable: true
         failure: true
         plugin:
