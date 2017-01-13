@@ -49,7 +49,7 @@ flows:
 
     # steps definition, cannot define both plugin and scripts
     steps:
-      - name: step_14
+      - name: step_0
         enable: true
         failure: true
         plugin:
@@ -70,6 +70,18 @@ flows:
 #          version: 2.3.6
 
       - name: step_4 # only script
+        scripts:
+          - echo "hello world1"
+          - echo "hello world2"
+      - name: step_5 # only script
+        scripts:
+          - echo "hello world1"
+          - echo "hello world2"
+      - name: step_6 # only script
+        scripts:
+          - echo "hello world1"
+          - echo "hello world2"
+      - name: step_7 # only script
         scripts:
           - echo "hello world1"
           - echo "hello world2"
