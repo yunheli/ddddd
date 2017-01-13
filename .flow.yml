@@ -59,10 +59,10 @@ flows:
             - FLOW_WORK_SPACE=12
             - FLOW_WORK_XXXXX=14
 
-      - name: step_2
+      - name: step_1
         failure: true
         scripts:
-          - echo "hello world"
+          - echo "hello world1"
 
       - name: step_3 # only plugin
         plugin:
