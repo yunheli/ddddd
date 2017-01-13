@@ -1,7 +1,7 @@
 # project level configuration
-docker: java-docker
+#docker: java-docker
 language: ruby
-version: 1.6
+version: 2.3.0
 cache: true
 build_path: ./project_folder_name
 env:
@@ -32,23 +32,19 @@ flows:
     finalize:
       email:
         success:
-          - test1@fir.im
-          - test2@fir.im
-          - test3@fir.im
+          - hl@fir.im
         failure:
-          - test1@fir.im
-          - test2@fir.im
+          - hl@fir.im
       slack:
         success:
-          - http://www1.slack.com/
-          - http://www2.slack.com/
+          - https://hooks.slack.com/services/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
         failure:
-          - http://www.slack.com/
-      webhook:
-        success:
-          - http://www1.slack.com/
-        failure:
-          - http://www.slack.com/
+          - https://hooks.slack.com/services/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
+#      webhook:
+#        success:
+#          - http://www1.slack.com/
+#        failure:
+#          - http://www.slack.com/
 
     # steps definition, cannot define both plugin and scripts
     steps:
