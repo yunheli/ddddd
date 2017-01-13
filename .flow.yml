@@ -1,6 +1,6 @@
 # project level configuration
 docker: java-docker
-language: node.js
+language: ruby
 version: 1.6
 cache: true
 build_path: ./project_folder_name
@@ -40,34 +40,35 @@ flows:
           - test2@fir.im
       slack:
         success:
-          - xxx
-          - xxx
+          - http://www1.slack.com/
+          - http://www2.slack.com/
         failure:
-          - xxx
+          - http://www.slack.com/
       webhook:
         success:
-          - xxx
+          - http://www1.slack.com/
         failure:
-          - xxx
+          - http://www.slack.com/
 
     # steps definition, cannot define both plugin and scripts
     steps:
       - name: step_1
         enable: true
-        failure: false
+        failure: true
         plugin:
-          name: xxxx
+          name: nodejs_init
           inputs:
             - FLOW_WORK_SPACE=12
             - FLOW_WORK_XXXXX=14
 
       - name: step_2
+        failure: true
         scripts:
           - mvn build test
 
       - name: step_3 # only plugin
         plugin:
-          name: redis
+          name: php_init
           version: 2.3.6
 
       - name: step_4 # only script
@@ -86,7 +87,7 @@ flows:
         enable: true
         failure: false
         plugin:
-          name: xxxx
+          name: android_init
           inputs:
             - FLOW_WORK_SPACE=12
             - FLOW_WORK_XXXXX=14
