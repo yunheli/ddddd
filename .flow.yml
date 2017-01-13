@@ -1,7 +1,6 @@
 # project level configuration
 #docker: java-docker
-language: ruby
-version: 2.3.0
+
 cache: true
 build_path: ./project_folder_name
 env:
@@ -12,8 +11,10 @@ env:
 # flow level configuration
 flows:
   - name: 123
-    docker: open-jdk-1.9-docker
-    language: objective-c
+#    docker: open-jdk-1.9-docker
+#    language: objective-c
+    language: ruby
+    version: 2.3.0
     cache: false
     env:
       - FLOW_ENV_5=xxx555
@@ -21,7 +22,7 @@ flows:
 
     trigger:
       push:
-        - develop
+#        - develop
         - master
       tag:
         - '*'
@@ -52,7 +53,8 @@ flows:
         enable: true
         failure: true
         plugin:
-          name: nodejs_init
+#          name: nodejs_init
+          name: ruby_init
           inputs:
             - FLOW_WORK_SPACE=12
             - FLOW_WORK_XXXXX=14
@@ -60,30 +62,30 @@ flows:
       - name: step_2
         failure: true
         scripts:
-          - mvn build test
+          - echo "hello world"
 
       - name: step_3 # only plugin
         plugin:
-          name: php_init
-          version: 2.3.6
+          name: mongodb_database
+#          version: 2.3.6
 
       - name: step_4 # only script
         scripts:
-          - mvn finish
-          - mvn clean
+          - echo "hello world1"
+          - echo "hello world2"
 
-  - name: flow-2
-    trigger:
-      push:
-        - develop
+#  - name: flow-2
+#    trigger:
+#      push:
+#        - develop
 
     # steps definition, cannot define both plugin and scripts
-    steps:
-      - name: step_1
-        enable: true
-        failure: false
-        plugin:
-          name: android_init
-          inputs:
-            - FLOW_WORK_SPACE=12
-            - FLOW_WORK_XXXXX=14
+#    steps:
+#      - name: step_1
+#        enable: true
+#        failure: false
+#        plugin:
+#          name: android_init
+#          inputs:
+#            - FLOW_WORK_SPACE=12
+#            - FLOW_WORK_XXXXX=14
