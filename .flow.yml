@@ -58,6 +58,7 @@ flows:
         scripts:
           - echo "$FLOW_SECURE_ENV_1"
           - echo "$FLOW_SECURE_ENV_2"
+      
       - name: step_0
         enable: true
         failure: true
@@ -67,7 +68,6 @@ flows:
           inputs:
             - FLOW_WORK_SPACE=12
             - FLOW_WORK_XXXXX=14
-
 
       - name: step_1
         failure: true
