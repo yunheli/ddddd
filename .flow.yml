@@ -7,6 +7,10 @@ env:
  - FLOW_ENV_1=xxx111,FLOW_ENV_2=xxx111
  - FLOW_ENV_3=xxx222
  - FLOW_ENV_4=xxx333
+secure_env: 
+ #abcd
+ - FLOW_SECURE_ENV_1=BiVGOL3Lm2zOYZ6x4iW/TV0jw9APA5Npn5zVxQ4PtRUErFmCqL6wyFqcoqnj\nWpb4pdatqkFq8+TDmR4l5YRzL4B4zPZVrUc7NcnszizYc+NCz/5GPkmbhcBW\n3sh3gEMZSVmrMLz4VTB75ZCPXneaaHKOo/fAP5vjlASTbY9G29mEN18WHdib\n304V0VRT0ssBGWFy+MJ3rIV2WoNJ08Rj5v5tF0/BBxplhbLctuh/HQ3+haVA\nVSFCn+Js5NOPgyCkaTssVVEmZ9N5q5x6kJvALKDHEVeMulz6z0jRs1d6xekm\nrEimdZn0IleluOIMUSioVRh5ibleq0bDuQpD0ey8fA==\n
+ - FLOW_SECURE_ENV_2=wmyEELwdUDy3daOxE3myWrKwIH+UK3r3O2zIjhlHRs2Lb8rC4FqcyzyQsaUN\nb0ytVYp7kkr8Lxc9WGR1ZwrKFyoQxxsoIKATQGGxWDrN8wMIdQyYrSnK/0UG\nTe/jmCoaq8RMb1y5SLivkj2/gB/K6ydh17TJJpLibRZ3sfUqXeELBcVF4zTW\nzSuO93L0aE//mJpxakA7WbWmOPXATIrcdpZg49Ulhqga2YhWWZrC8T99WAKv\nq19AKYGfYv1KbvsLdc8jnVxSVc43y57tfvFqLJJbdxlf/AOcgQCqZzQxkipx\n5nCG7F54zirFd+HMTWqjBkcX01WCSOSH5S0AJs8k+g==\n
 
 # flow level configuration
 flows:
