@@ -53,7 +53,7 @@ flows:
 
     # steps definition, cannot define both plugin and scripts
     steps:
-      - name: SecureENV
+      - name: SecureENV12
         failure: true
         scripts:
           - echo "$FLOW_SECURE_ENV_1"
