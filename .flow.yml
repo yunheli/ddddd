@@ -23,7 +23,10 @@ flows:
     env:
       - FLOW_ENV_5=xxx555
       - FLOW_ENV_6=xxx666
-
+    artifacts:
+      - "selenium/screenshots" # relative to the project directory
+      - "$HOME/simplecov" # relative to the user's home directory
+      - "test.txt" # a single file, relative to the project directory
     trigger:
       push:
 #        - develop
@@ -103,6 +106,12 @@ flows:
         scripts:
           - echo "hello world1"
           - echo "hello world2"
+      - name: step_10
+        enable: true
+        failure: true
+        plugin:
+#          name: nodejs_init
+          name: artifact_plugin
 
 #  - name: flow-2
 #    trigger:
