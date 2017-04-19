@@ -110,7 +110,6 @@ flows:
         enable: true
         failure: true
         plugin:
-#          name: nodejs_init
           name: artifact_plugin
 
 #  - name: flow-2
