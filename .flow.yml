@@ -104,8 +104,9 @@ flows:
           - echo "hello world2"
       - name: step_9 # only script
         scripts:
-          - echo "hello world1"
-          - echo "hello world2"
+          - mkdir /home/flow/simplecov
+          - echo "hello world1" > /home/flow/simplecov/1.log
+          - echo "hello world2" > /home/flow/simplecov/2.log
       - name: step_10
         enable: true
         failure: true
