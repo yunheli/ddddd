@@ -24,9 +24,8 @@ flows:
       - FLOW_ENV_5=xxx555
       - FLOW_ENV_6=xxx666
     artifacts:
-      - "selenium/screenshots" # relative to the project directory
-      - "$HOME/simplecov" # relative to the user's home directory
-      - "test.txt" # a single file, relative to the project directory
+      - "app/models" # relative to the user's home directory
+      - "README.md" # a single file, relative to the project directory
     trigger:
       push:
 #        - develop
